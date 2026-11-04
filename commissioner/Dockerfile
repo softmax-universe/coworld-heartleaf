@@ -3,7 +3,7 @@
 # 30-minute rounds, champion-only competition). Built self-contained from
 # a pinned coworld-tools commit so `docker compose build --pull` works
 # with no local base image. Do NOT base this on the old
-# ghcr.io/metta-ai/commissioners-default digest (75d77cf9, June): that
+# ghcr.io/softmax-universe/commissioners-default digest (75d77cf9, June): that
 # image only accepts baseline_window / rolling_window, so shuffled_window
 # would fail config parse, and it never stamps a per-episode seed.
 FROM python:3.13-slim
@@ -16,7 +16,7 @@ ENV COMMISSIONER_KEY=config_driven \
 
 RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
-    && git clone https://github.com/Metta-AI/coworld-tools /tmp/coworld-tools \
+    && git clone https://github.com/softmax-universe/coworld-tools /tmp/coworld-tools \
     && git -C /tmp/coworld-tools checkout "${COWORLD_TOOLS_REF}" \
     && cp -r /tmp/coworld-tools/commissioners /app \
     && rm -rf /tmp/coworld-tools
