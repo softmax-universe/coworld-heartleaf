@@ -28,7 +28,7 @@ jobs:
       matrix:
         include:
           - name: grader
-            image: metta-ai/coworld-heartleaf-grader
+            image: softmax-universe/coworld-heartleaf-grader
             context: ./grader
             file: ./grader/graders/bitworld_score/bitworld_score_grader/Dockerfile
 
